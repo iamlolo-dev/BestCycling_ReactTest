@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom';
-import { Button } from '@mui/material'
+import { Button, Grid } from '@mui/material'
 
 import { GridLastClassesItem } from './';
 import { useCyclingData } from '../../hooks/useCyclingData';
@@ -29,7 +29,7 @@ export const GridLastClasses = () => {
                     </Button>
 
                 </div>
-                <div className='containeritems-lastclasses'>
+                <Grid container sx={{ display: 'flex', justifyContent: 'center'}}>
                     {
                         data.slice(0, 9).map(classes => (
                             <GridLastClassesItem
@@ -38,7 +38,7 @@ export const GridLastClasses = () => {
                             />
                         ))
                     }
-                </div>
+                </Grid>
             </>
         )
     )

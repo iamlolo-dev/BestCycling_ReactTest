@@ -3,11 +3,12 @@ import { Navigate, Route, Routes } from 'react-router-dom'
 import { Container } from '@mui/material'
 
 import { Navbar } from '../../ui/components/Navbar'
+import { ClassProvider } from '../context/ClassProvider'
 import { CyclingPage, TrainingPage, SearchTrainingPage } from '../pages'
 
 export const CyclingRoutes = () => {
     return (
-        <>
+        <ClassProvider>
             <Navbar />
             
             <Container maxWidth='xl' style={{display: 'grid', justifyContent:'center'}}>
@@ -19,6 +20,6 @@ export const CyclingRoutes = () => {
                     <Route path='/' element={<Navigate to='/home' />} />
                 </Routes>
             </Container>
-        </>
+        </ClassProvider>
     )
 }

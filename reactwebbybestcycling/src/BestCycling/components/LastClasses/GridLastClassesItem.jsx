@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { DateTime } from 'luxon';
+import Box from '@mui/material/Box';
 
 import { LogoBestCyling } from '../LogoBestCyling';
 import { getNamesCoah } from '../../helpers/getNamesCoah';
@@ -20,8 +21,9 @@ export const GridLastClassesItem = ({ training_class }) => {
     const handleClick = () => navigate(`/trainingclass/${ id }`);
 
     return (
-        <div className='div-click animate__animated animate__backInLeft' onClick={ handleClick } >
+        <Box component='div' spacing={1} sx={{ m: 1 }}  className='div-click animate__animated animate__backInLeft' onClick={ handleClick } >
             <div className='container-lastclasses-item' >
+
                 <div className='header-item-classes' >
                     <LogoBestCyling />
                     <p className='text-capitalize' style={{ color: 'grey' }}>{datePublished}</p>
@@ -33,7 +35,8 @@ export const GridLastClassesItem = ({ training_class }) => {
                         <p className='text-capitalize'>{coachName}</p>
                     </div>
                 </div>
+
             </div>
-        </div>
+        </Box>
     )
 }

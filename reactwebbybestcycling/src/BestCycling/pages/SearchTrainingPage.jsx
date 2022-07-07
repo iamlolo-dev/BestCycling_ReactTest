@@ -1,38 +1,24 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom';
-import { Grid, IconButton } from '@mui/material';
-import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
+
+import { Grid } from '@mui/material';
 
 import { useCyclingData } from '../hooks/useCyclingData';
-import { SearchTrainingItem } from '../components/SearchTraining/SearchTrainingItem';
+import { SearchTrainingItem, ButtonGoBack, ButtonPlay } from '../components/SearchTraining';
 
 export const SearchTrainingPage = () => {
     const { data, loading } = useCyclingData('training_classes');
-    const navigate = useNavigate();
 
     if (loading) return <div>Loading...</div>
-
-    const onNavigateBack = () => navigate(-1);
 
     return (
         data && (
             <>
-                <div className='searchtraining-header '>
-                    <IconButton
-                        aria-label="ArrowBackIosOutlinedIcon"
-                        style={{ backgroundColor: 'black', color: 'white', width: '45px', height: '45px', marginRight: '15px' }}
-                        color='info'
-                        size='medium'
-                        onClick={onNavigateBack}
-                    >
-                        <ArrowBackIosOutlinedIcon />
-                    </IconButton>
+                <div className='searchtraining-header'>
+                    <ButtonGoBack />
+                    
+                    <ButtonPlay />
                 </div>
-                <Grid container sx={{
-                    display: 'grid',
-                    gridAutoFlow: 'row',
-                    gridTemplateColumns: 'repeat(5, 1fr)',
-                }}>
+                <Grid container sx={{ display: 'flex', justifyContent: 'center' }}>
                     {
                         data.map(classes => (
                             <SearchTrainingItem
