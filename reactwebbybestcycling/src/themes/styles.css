@@ -1,0 +1,264 @@
+* {
+    font-family: Monserrat, sans-serif;
+}
+
+body {
+    margin: 0 auto;
+    padding: 0;
+    background-color: var(--background-color);
+}
+
+/* css navbar*/
+.navbar {
+    background-color: var(--nav-color);
+    color: var(--nav-text-color);
+    font-size: 13px;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 4em;
+}
+
+.nav-logo img {
+    margin-left: 1em;
+    width: 250px;
+    height: 40px;
+}
+
+/* css utilidad*/
+
+.avatar-default img {
+    width: 230px;
+    height: auto;
+    border-radius: 999px;
+}
+
+.title{
+    color: var(--fff-color);
+    font-weight: bold;
+}
+
+.hr-style {
+    opacity: 0.1;
+}
+
+/* css perfil*/
+
+.profile-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 8em;
+    margin-bottom: 2.5em;
+}
+
+.profile-text {
+    margin-left: 20px;
+}
+
+.profile-text p {
+    color: var(--nav-text-color);
+}
+
+.profile-ubication {
+    display: flex;
+    align-items: center;
+    color: var(--nav-text-color);
+}
+
+/* level */
+.profile-level {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.profile-position-level {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.profile-level-valor {
+    color: #fff;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+.text-uppercase {
+    color: var(--nav-text-color);
+    text-transform: uppercase;
+}
+
+
+/* stats */
+.profile-stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1.5em;
+    margin-bottom: 3em;
+}
+
+.profile-position-stats {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 15px;
+}
+
+.text-capitalize {
+    color: var(--nav-text-color);
+    text-transform: capitalize;
+}
+
+.profile-stats-valor {
+    color: #fff;
+    font-size: 2em;
+    font-weight: bold;
+    border-radius: 100px;
+    width: 2.2em;
+    height: 2.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+/* last classes */
+
+.header-lastClasses {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 2em
+}
+
+.title-lastClasses {
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.lastClasses-logo img{
+    width: 105px;
+    height: 15px;
+}
+
+.header-item-classes p {
+    font-size: 13px;
+}
+
+.header-item-classes {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.container-lastclasses-item {
+    margin-top: 20px;
+    min-width: 300px;
+    min-height: 100px;
+}
+
+.box-classe {
+    background-color: var(--box-backcolor);
+    height: 65px;
+    display:flex;
+    flex-direction: column;
+}
+
+.div-click {
+    cursor: pointer;
+}
+
+.div-click  :hover {
+    background: rgba(0,0,0,0);
+    color: var(--box-backcolor-hover);
+    
+}
+
+.containeritems-lastclasses {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+/* css training page */
+
+.training-header {
+    display: flex;
+    flex-direction: row;
+    padding-top: 8em;
+    margin-bottom: 10px;
+} 
+
+.nav-trainingpage {
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.containervideo-trainingpage {
+    background-color: var(--nav-color);
+    width: 950px;
+    height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.countdown-trainingpage{
+    color: #fff;
+    font-size: 6em;
+    font-weight: bold;
+}
+
+.navtype-trainingpage {
+    display: flex;
+    flex-direction: column;
+}
+
+.icon-back {
+    background-color: var(--nav-color);
+    color: #fff;
+    border-radius: 100px;
+}
+
+/* search training page css*/
+
+.searchtraining-header {
+    display: flex;
+    flex-direction: row;
+    padding-top: 8em;
+    margin-bottom: 10px;
+}
+
+.trianglecategory{
+    background-color: orange;
+    bottom: 0;
+    position: absolute;
+    right: 0;
+    min-height: 20px;
+    min-width: 20px;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+    clip-path: polygon(100% 0,0 100%,100% 100%);
+}
+
+.dot {
+    height: 5px;
+    width: 5px;
+    background-color: #4e4e4e;
+    border-radius: 999px;
+    display: inline-block;
+    margin: 3px;
+}
+
+/*@media*/
+
+@media (max-width: 375px) {
+    .containeritems-lastclasses{
+        justify-content: center;
+    }
+}
+    
