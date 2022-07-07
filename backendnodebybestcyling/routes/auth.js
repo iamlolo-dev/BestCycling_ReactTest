@@ -8,9 +8,9 @@ const router = Router();
 
 const { newSubscription, statusSubscription } = require('../controllers/auth');
 
-router.post('/sub-new', newSubscription);
+router.post('/new', newSubscription);
 
-router.post('/sub-status', statusSubscription);
+router.post('/status', statusSubscription);
 
 
 module.exports = router;
