@@ -1,10 +1,14 @@
 const express = require('express');
+const cors    = require('cors');
 require('dotenv').config();
 
 let port = process.env.PORT || 4040  // establecemos nuestro puerto
 
 //Crear el servidor de express
 const app = express();
+
+//Cors
+app.use(cors());
 
 //Directorio publico
 app.use(express.static('public'));
@@ -13,7 +17,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 //Rutas
-app.use('/suscription', require('./routes/auth'));
+app.use('/subscription', require('./routes/auth'));
 
 //Escuchar peticiones
 app.listen(port, () => {

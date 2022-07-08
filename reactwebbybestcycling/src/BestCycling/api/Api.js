@@ -1,6 +1,6 @@
 
 import axios from 'axios';
-
+import { getEnvVariables } from '../helpers/getEnvVariables';
 
 /***********PETICION API BESTCYCLING***********/
 const apiCycling = axios.create({
@@ -15,14 +15,18 @@ export function getData() {
         });
 };
 
+
 /***************PETICION API BACKEND NODE****************** */
-const backendNode = axios.create({
-    baseURL: 'http://localhost:4000',
-    timeout: 3000,
+
+const { VITE_API_URL } = getEnvVariables();
+
+export const backendNode = axios.create({
+    baseURL: VITE_API_URL,
+    timeout: 5000,
 });
 
 export function getNewSubscription(data) {
-    return backendNode.post('/suscription/new', data)
+    return backendNode.post('/new', data)
         .then(res => {
             return res;
         });

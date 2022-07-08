@@ -1,13 +1,13 @@
 /*
-    RUTAS DE Usuarios / Auth
-    host + /api/auth
+    RUTAS DE Subs /auth
+    host + /suscription/*
 */
 
 const { Router } = require('express');
 
 const router = Router();
 
-const { newSubscription, statusSubscription } = require('../controllers/auth');
+const { newSubscription, statusSubscription } = require('../controllers/controller');
 
 router.post('/new', newSubscription);
 
