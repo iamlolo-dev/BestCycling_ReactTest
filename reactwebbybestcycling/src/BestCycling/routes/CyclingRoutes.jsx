@@ -4,7 +4,7 @@ import { Container } from '@mui/material'
 
 import { Navbar } from '../../ui/components/Navbar'
 import { ClassProvider } from '../context/ClassProvider'
-import { CyclingPage, TrainingPage, SearchTrainingPage } from '../pages'
+import { CyclingPage, TrainingPage, SearchTrainingPage, SubscriptionPage } from '../pages'
 
 export const CyclingRoutes = () => {
     return (
@@ -16,6 +16,7 @@ export const CyclingRoutes = () => {
                     <Route path='home' element={<CyclingPage />} />
                     <Route path='trainingclass/:id' element={<TrainingPage />} />
                     <Route path='searchtrainingclass' element={<SearchTrainingPage />} />
+                    <Route path='subscription' element={<SubscriptionPage />} />
 
                     <Route path='/' element={<Navigate to='/home' />} />
                 </Routes>

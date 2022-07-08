@@ -3,9 +3,9 @@
 }
 
 body {
+    background-color: var(--background-color);
     margin: 0 auto;
     padding: 0;
-    background-color: var(--background-color);
 }
 
 /* css navbar*/
@@ -13,26 +13,26 @@ body {
     background-color: var(--nav-color);
     color: var(--nav-text-color);
     font-size: 13px;
-    padding-top: 0;
-    padding-bottom: 0;
     min-height: 4em;
+    padding-bottom: 0;
+    padding-top: 0;
 }
 
 .nav-logo img {
+    height: 40px;
     margin-left: 1em;
     width: 250px;
-    height: 40px;
 }
 
 /* css utilidad*/
 
 .avatar-default img {
-    width: 230px;
-    height: auto;
     border-radius: 999px;
+    height: auto;
+    width: 230px;
 }
 
-.title{
+.title {
     color: var(--fff-color);
     font-weight: bold;
 }
@@ -44,12 +44,12 @@ body {
 /* css perfil*/
 
 .profile-box {
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
-    align-items: center;
-    margin-top: 8em;
     margin-bottom: 2.5em;
+    margin-top: 8em;
 }
 
 .profile-text {
@@ -61,21 +61,21 @@ body {
 }
 
 .profile-ubication {
-    display: flex;
     align-items: center;
     color: var(--nav-text-color);
+    display: flex;
 }
 
 /* level */
 .profile-level {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: space-evenly;
 }
 
 .profile-position-level {
-    display: flex;
     align-items: center;
+    display: flex;
     flex-direction: column;
 }
 
@@ -93,16 +93,16 @@ body {
 
 /* stats */
 .profile-stats {
-    display: flex;
     align-items: center;
+    display: flex;
     justify-content: center;
-    margin-top: 1.5em;
     margin-bottom: 3em;
+    margin-top: 1.5em;
 }
 
 .profile-position-stats {
-    display: flex;
     align-items: center;
+    display: flex;
     flex-direction: column;
     margin-left: 15px;
 }
@@ -113,35 +113,35 @@ body {
 }
 
 .profile-stats-valor {
+    align-items: center;
+    border-radius: 100px;
     color: #fff;
+    display: flex;
     font-size: 2em;
     font-weight: bold;
-    border-radius: 100px;
-    width: 2.2em;
     height: 2.2em;
-    display: flex;
     justify-content: center;
-    align-items: center;
     margin-bottom: 8px;
+    width: 2.2em;
 }
 
 /* last classes */
 
 .header-lastClasses {
+    align-items: center;
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-top: 2em
 }
 
 .title-lastClasses {
-    font-weight: bold;
     font-size: 1.2em;
+    font-weight: bold;
 }
 
-.lastClasses-logo img{
-    width: 105px;
+.lastClasses-logo img {
     height: 15px;
+    width: 105px;
 }
 
 .header-item-classes p {
@@ -149,40 +149,40 @@ body {
 }
 
 .header-item-classes {
-    display:flex;
+    align-items: baseline;
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
-    align-items: baseline;
 }
 
 .container-lastclasses-item {
     margin-top: 20px;
-    min-width: 300px;
     min-height: 100px;
+    min-width: 300px;
 }
 
 .box-classe {
     background-color: var(--box-backcolor);
-    height: 65px;
-    display:flex;
+    display: flex;
     flex-direction: column;
+    height: 65px;
 }
 
 .div-click {
     cursor: pointer;
 }
 
-.div-click  :hover {
-    background: rgba(0,0,0,0);
+.div-click :hover {
+    background: rgba(0, 0, 0, 0);
     color: var(--box-backcolor-hover);
-    
+
 }
 
 .containeritems-lastclasses {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
     flex-wrap: wrap;
+    justify-content: space-between;
 }
 
 /* css training page */
@@ -190,25 +190,25 @@ body {
 .training-header {
     display: flex;
     flex-direction: row;
-    padding-top: 8em;
     margin-bottom: 10px;
-} 
+    padding-top: 8em;
+}
 
 .nav-trainingpage {
-    margin-right: 15px;
     cursor: pointer;
+    margin-right: 15px;
 }
 
 .containervideo-trainingpage {
-    background-color: var(--nav-color);
-    width: 950px;
-    height: 600px;
-    display: flex;
-    justify-content: center;
     align-items: center;
+    background-color: var(--nav-color);
+    display: flex;
+    height: 600px;
+    justify-content: center;
+    width: 950px;
 }
 
-.countdown-trainingpage{
+.countdown-trainingpage {
     color: #fff;
     font-size: 6em;
     font-weight: bold;
@@ -221,8 +221,8 @@ body {
 
 .icon-back {
     background-color: var(--nav-color);
-    color: #fff;
     border-radius: 100px;
+    color: #fff;
 }
 
 /* search training page css*/
@@ -231,20 +231,21 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 2em;
     margin-right: 40px;
     padding-top: 8em;
-    margin-bottom: 2em;
 }
 
-.trianglecategory{
+.trianglecategory {
     background-color: orange;
     bottom: 0;
-    position: absolute;
-    right: 0;
+    clip-path: polygon(100% 0, 0 100%, 100% 100%);
     min-height: 20px;
     min-width: 20px;
+    position: absolute;
+    right: 0;
+
     -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
-    clip-path: polygon(100% 0,0 100%,100% 100%);
 }
 
 .dot {
@@ -256,12 +257,31 @@ body {
     margin: 3px;
 }
 
+/* subscription page css*/
+
+.subscription-header {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2em;
+    padding-top: 8em;
+}
+
+.t-main {
+    color: var(--fff-color);
+    font-size: 2.1em;
+    font-weight: bold;
+    text-align: center;
+}
+
+.b-row {
+    display: flex;
+}
 
 /*@media*/
 
 @media (max-width: 375px) {
-    .containeritems-lastclasses{
+    .containeritems-lastclasses {
         justify-content: center;
     }
 }
-    
