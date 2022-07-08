@@ -245,7 +245,6 @@ body {
     position: absolute;
     right: 0;
 
-    -webkit-clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
 }
 
 .dot {
@@ -276,6 +275,49 @@ body {
 
 .b-row {
     display: flex;
+}
+
+/* Login Page css */
+
+.l-container,
+.l-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.c-p {
+    height: 100vh;
+    background-image: linear-gradient(0deg, rgba(77, 48, 6, .986) 0, rgba(251, 194, 235, .4)), url(../../assets/images/background.jpg_large);
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: 50%;
+}
+
+.l-box {
+    width: 50vh;
+    height: 50vh;
+    background-color: rgba(255, 255, 255, 0.664);
+    box-shadow: 0 0 25px rgba(0, 0, 0, .9);
+    border-radius: 20px;
+    flex-direction: column;
+    transition: all .3s linear;
+    display: flex;
+    justify-content: space-between;
+}
+
+.l-box:hover {
+    transform: scale(1.05);
+}
+
+.logo-animated {
+    animation: flip;
+    animation-duration: 1.5s;
+}
+
+.animate__animated.animate__flip {
+    --animate-duration: 2s;
 }
 
 /*@media*/

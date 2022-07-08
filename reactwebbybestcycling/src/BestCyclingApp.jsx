@@ -1,13 +1,16 @@
 import React from 'react'
 
 import { AppRouter } from './router/AppRouter'
+import { AuthProvider } from './auth/context';
+import { ClassProvider } from './BestCycling/context/ClassProvider';
 
 export const BestCyclingApp = () => {
 
-    //Aqui podria ir el AuthContext
     return (
-        <>
-            <AppRouter />
-        </>
+        <AuthProvider>
+            <ClassProvider>
+                <AppRouter />
+            </ClassProvider>
+        </AuthProvider>
     );
 };

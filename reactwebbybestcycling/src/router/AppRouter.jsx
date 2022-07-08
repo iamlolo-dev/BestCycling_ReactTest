@@ -1,14 +1,31 @@
-import { Navigate, Route, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 
 import { CyclingRoutes } from "../BestCycling/routes/CyclingRoutes";
+import { LoginPage } from "../auth/pages/LoginPage";
+import { PrivateRoute, PublicRouter } from "./";
 
 export const AppRouter = () => {
-    
-    //Aqui podriamos implementar rutas privadas y publicas según si el usuario esta logueado o no.
+
     return (
         <>
             <Routes>
-                <Route path="/*" element={<CyclingRoutes />} />
+
+                //route private
+                <Route path='/login' element={
+                    <PublicRouter>
+                        <Routes>
+                            <Route path='/*' element={<LoginPage />} />
+                        </Routes>
+                    </PublicRouter>
+                } />
+
+                //route public
+                <Route path='/*' element={
+                    <PrivateRoute>
+                        <CyclingRoutes />
+                    </PrivateRoute>
+                } />
+
             </Routes>
         </>
     );

@@ -4,6 +4,7 @@
 */
 
 const { Router } = require('express');
+
 const router = Router();
 
 const { newSubscription, statusSubscription } = require('../controllers/auth');
