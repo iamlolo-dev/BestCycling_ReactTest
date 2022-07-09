@@ -7,13 +7,12 @@ const { Router } = require('express');
 
 const router = Router();
 
-const { newSubscription, statusSubscription, login } = require('../controllers/controller');
+const { login, saveSubscription } = require('../controllers/controller');
 
-router.post('/new', newSubscription);
 
 router.post('/login', login);
+router.put('/save', saveSubscription)
 
-router.post('/status', statusSubscription);
 
 
 module.exports = router;
