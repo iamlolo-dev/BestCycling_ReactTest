@@ -11,7 +11,7 @@ export const CyclingRoutes = () => {
         <ClassProvider>
             <Navbar />
             
-            <Container maxWidth='xl' style={{display: 'grid', justifyContent:'center'}}>
+            <Container maxWidth='xl'>
                 <Routes>
                     <Route path='home' element={<CyclingPage />} />
                     <Route path='trainingclass/:id' element={<TrainingPage />} />

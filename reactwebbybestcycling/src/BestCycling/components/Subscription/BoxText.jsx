@@ -1,25 +1,23 @@
-import React, { useState } from 'react'
+import React, { useContext } from 'react'
 import Box from '@mui/material/Box';
-import { Checkbox, FormControl, FormControlLabel, FormGroup, FormLabel } from '@mui/material';
+import { Checkbox, FormControlLabel, FormGroup } from '@mui/material';
+import { AuthContext } from '../../../auth/context';
 
 export const BoxText = () => {
 
-    const [checked, setChecked] = useState(false);
-
-    const handleChange = () => setChecked(!checked);
-
+    const { toggleAutorenove, authState } = useContext(AuthContext);
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            <FormGroup sx={{mt:5 }}>
+        <Box style={{ display: 'flex', justifyContent: 'center', marginBottom: '1em' }}>
+            <FormGroup sx={{ mt: 5 }}>
 
-                    <FormControlLabel
-                        sx={{ color: '#a8a8a8', fontSize: '14px', fontWeight: 'bold' }}
-                        control={
-                            <Checkbox checked={checked} color='warning' onChange={handleChange} sx={{ color: '#fff', '& .MuiSvgIcon-root': { fontSize: 28 }  }} />
+                <FormControlLabel
+                    sx={{ color: '#a8a8a8', fontSize: '14px', fontWeight: 'bold' }}
+                    control={
+                        <Checkbox checked={authState.user.autorenove} color='warning' onChange={ toggleAutorenove } sx={{ color: '#fff', '& .MuiSvgIcon-root': { fontSize: 28 } }} />
                         }
                         label="Autorenovar automáticamente" />
-                </FormGroup>
+            </FormGroup>
         </Box >
     )
 }

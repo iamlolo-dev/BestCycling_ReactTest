@@ -49,7 +49,6 @@ export const TrainingPage = () => {
         decrement();
     }, (counter !== 0) ? 1000 : null);
 
-
     if (!dataClasse) return <div>Loading...</div>
 
     return (

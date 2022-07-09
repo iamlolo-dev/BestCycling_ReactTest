@@ -3,6 +3,7 @@ import axios from 'axios';
 import { getEnvVariables } from '../helpers/getEnvVariables';
 
 /***********PETICION API BESTCYCLING***********/
+
 const apiCycling = axios.create({
     baseURL: 'https://bestcycling-public.s3.eu-west-1.amazonaws.com',
     timeout: 3000,
@@ -27,6 +28,13 @@ export const backendNode = axios.create({
 
 export function getNewSubscription(data) {
     return backendNode.post('/new', data)
+        .then(res => {
+            return res;
+        });
+};
+
+export function sendLogin(data) {
+    return backendNode.post('/login', data)
         .then(res => {
             return res;
         });

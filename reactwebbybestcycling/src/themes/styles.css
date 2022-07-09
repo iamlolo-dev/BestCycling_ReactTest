@@ -259,9 +259,7 @@ body {
 /* subscription page css*/
 
 .subscription-header {
-    align-items: center;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
     margin-bottom: 2em;
     padding-top: 8em;
 }
@@ -284,6 +282,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 2em;
 }
 
 .c-p {

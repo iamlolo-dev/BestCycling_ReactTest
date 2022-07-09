@@ -7,6 +7,6 @@
 
 ```
 
-VITE_API_URL=http://localhost:4000/subscription
+VITE_API_URL=http://localhost:4000/api/subscription
 
 ```

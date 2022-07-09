@@ -17,7 +17,7 @@ app.use(express.static('public'));
 app.use(express.json());
 
 //Rutas
-app.use('/subscription', require('./routes/auth'));
+app.use('/api/subscription', require('./routes/auth'));
 
 //Escuchar peticiones
 app.listen(port, () => {

@@ -4,10 +4,11 @@ import { NavLink, useNavigate } from 'react-router-dom';
 import LoginOutlined from '@mui/icons-material/LoginOutlined';
 
 import { AuthContext } from '../../auth/context';
+import { ButtonSubNav } from './ButtonSubNav';
 
 export const Navbar = () => {
 
-    const { logout } = useContext(AuthContext);
+    const { logout, authState } = useContext(AuthContext);
     const navigate = useNavigate()
 
     const onLogout = () => {
@@ -17,7 +18,13 @@ export const Navbar = () => {
         });
     };
 
-    const handleClick = () => navigate('/subscription')
+    const component = () => {
+
+        if (authState.user.subscription !== null) return <span> SUBSCRICIÓN: {authState.user.subscription}</span>
+        if (authState.user.typeSubscription !== null) return <ButtonSubNav text={'Renovación pendiente'} />
+
+        return <ButtonSubNav text={'SUSCRIPCIÓN'} />
+    }
 
     return (
         <AppBar position="fixed" style={{ background: '#000' }}>
@@ -28,25 +35,9 @@ export const Navbar = () => {
                 >
                     <img src={'../../assets/images/logo.png'} alt='logo' />
                 </NavLink>
-                {/* <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-                            BestCycling
-                        </Typography> */}
+
                 <div>
-                    <Button
-                        variant="contained"
-                        size='large'
-                        color='warning'
-                        sx={{
-                            color: '#fff',
-                            background: '#ff7900',
-                            fontWeight: 'bold',
-                            fontSize: '1em',
-                            marginRight: '1.5em',
-                        }}
-                        onClick={handleClick}
-                    >
-                        SUSCRÍBETE
-                    </Button>
+                    {component()}
 
                     <IconButton
                         size='large'

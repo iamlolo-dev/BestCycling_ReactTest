@@ -1,4 +1,5 @@
 const { response } = require('express');
+const dbUsers = require('../db/users');
 
 const newSubscription = (req, res = response) => {
 
@@ -27,7 +28,41 @@ const statusSubscription = (req, res = response) => {
     })
 };
 
+const login = (req, res = response) => {
+
+    const { user, password } = req.body;
+
+    const userExist = dbUsers.find(ind => ind.user === user);
+
+    if (userExist === undefined) {
+        return res.json({
+            status: 'error',
+            msg: 'User not exist.'
+        });
+    }
+
+    if (userExist.password === password) {
+
+        const resUser = {...userExist};
+
+        delete resUser.password;
+        
+        return res.json({
+            status: 'ok',
+            user: resUser,
+        })
+        
+    } else {
+        return res.json({
+            status: 'error',
+            msg: 'Password incorrect.'
+        });
+    }
+}
+
+
 module.exports = {
     newSubscription,
     statusSubscription,
+    login,
 };

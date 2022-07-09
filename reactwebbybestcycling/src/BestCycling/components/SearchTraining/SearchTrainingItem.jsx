@@ -1,15 +1,11 @@
-import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
-import { Box, Card, CardActionArea, CardContent, CardMedia, Checkbox, Typography } from '@mui/material';
+import { useState, useEffect, useContext } from 'react'
+import { Box, CardActionArea, CardContent, CardMedia, Checkbox, Typography } from '@mui/material';
 import { DateTime } from 'luxon';
+import { useNavigate } from 'react-router-dom';
 
-import { CalculateTime } from '../../helpers/getCalculateTime';
-import { getNamesCoah } from '../../helpers/getNamesCoah';
-import { StatusColorTriangle } from '../StatusColorTriangle';
-import { getBoolToCheckContext } from '../../helpers/getBoolToCheckContext';
-import { useEffect } from 'react';
-import { useContext } from 'react';
 import { ClassContext } from '../../context/ClassContext';
+import { getNamesCoah, CalculateTime, getBoolToCheckContext } from '../../helpers';
+import { StatusColorTriangle } from '../StatusColorTriangle';
 
 export const SearchTrainingItem = ({ training_class }) => {
 
@@ -52,7 +48,7 @@ export const SearchTrainingItem = ({ training_class }) => {
     }, [checked])
 
     return (
-        <Box component='div' spacing={1} sx={{ m: 1 }} className='animate__animated animate__zoomIn'>
+        <Box component='div' spacing={1} sx={{ m: 1 }} className='animate__animated animate__zoomInUp'>
             <CardActionArea onClick={handleClick}>
                 <CardMedia
                     component="img"

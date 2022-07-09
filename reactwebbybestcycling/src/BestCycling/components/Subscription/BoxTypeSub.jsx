@@ -1,29 +1,44 @@
-import { Box, Grid } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
+import { Button, Grid } from '@mui/material'
 
-export const BoxTypeSub = ({ text }) => {
+import { AuthContext } from '../../../auth/context';
 
+export const BoxTypeSub = ({ text, value }) => {
+
+    const { updateTime, authState, updateTypeSub  } = useContext(AuthContext);
+
+    const handleClick = (val) => {
+
+        updateTime(val);
+        updateTypeSub(val);
+
+    }
 
     return (
-        <Grid container sx={{ mt: 4, display: 'flex', justifyContent: 'center', flexDirection: 'row' }}>
-            <Box
-                spacing={1}
-                component='div'
+        <Grid item xs={12} sm={6} md={4}>
+            <Button
+                onClick={() => handleClick(value)}
+                fullWidth
                 sx={{
-                    m: 1,
+                    margin: '0 auto',
                     backgroundColor: '#fff',
-                    width: "300px",
+                    maxWidth: '300px',
                     height: "170px",
-                    padding: "24px 20px", // theme padding
+                    padding: "24px 20px",
                     border: "1px solid rgba(0, 0, 0, 0.12)",
                     borderRadius: 2,
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
+                    cursor: 'pointer',
                 }}
+                disabled={authState.user.subscription !== null ? true : false}
             >
-                <span style={{ fontSize: '2em', fontWeight: 'bold', color: '#ff7900' }}>{text}</span>
-            </Box>
+                <span style={{ fontSize: '2em', fontWeight: 'bold', color: '#ff7900' }}>
+                    {text}
+                </span>
+
+            </Button>
         </Grid >
     )
 }
