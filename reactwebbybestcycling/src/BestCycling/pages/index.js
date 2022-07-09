@@ -1,4 +1,4 @@
-export * from './CyclingPage';
-export * from './TrainingPage';
-export * from './SearchTrainingPage';
+export * from './TrainingPlayerPage';
+export * from './AllClassesPage';
 export * from './SubscriptionPage';
+export * from './BestCyclingPage';

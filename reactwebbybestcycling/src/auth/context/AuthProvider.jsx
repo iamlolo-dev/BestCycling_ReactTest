@@ -1,4 +1,5 @@
 import React, { useReducer } from 'react'
+import { saveSubscription } from '../../BestCycling/api/Api';
 
 import { types } from '../types/types';
 import { AuthContext, authReducer } from './'
@@ -19,11 +20,17 @@ export const AuthProvider = ({ children }) => {
     };
 
     const logout = () => {
-        localStorage.clear();
 
-        const action = { type: types.logout };
+        saveSubscription(authState.user)
+            .then((res) => {
+                console.log(res.data)
+                localStorage.clear();
 
-        dispatch(action);
+                const action = { type: types.logout };
+
+                dispatch(action);
+
+            })
     }
 
     const updateTime = (time) => {

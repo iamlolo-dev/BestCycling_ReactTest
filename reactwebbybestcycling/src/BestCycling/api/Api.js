@@ -26,15 +26,15 @@ export const backendNode = axios.create({
     timeout: 5000,
 });
 
-export function getNewSubscription(data) {
-    return backendNode.post('/new', data)
+export function sendLogin(data) {
+    return backendNode.post('/login', data)
         .then(res => {
             return res;
         });
 };
 
-export function sendLogin(data) {
-    return backendNode.post('/login', data)
+export function saveSubscription(data) {
+    return backendNode.put('/save', data)
         .then(res => {
             return res;
         });

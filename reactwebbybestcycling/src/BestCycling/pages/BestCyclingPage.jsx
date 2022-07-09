@@ -2,7 +2,7 @@ import React from 'react'
 
 import { GridLastClasses, GridProfile, HrStyle } from '../components'
 
-export const CyclingPage = () => {
+export const BestCyclingPage = () => {
 
     return (
         <>

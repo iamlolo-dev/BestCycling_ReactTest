@@ -14,14 +14,14 @@ const initColors = {
 
 export const ButtonPlay = () => {
 
-    const { checkedClasses } = useContext(ClassContext);
+    const { checkedClass } = useContext(ClassContext);
     const navigate = useNavigate();
 
     const [colorsOff, setColorsOff] = useState(initColors)
     const [disabled, setDisabled] = useState(true);
 
     useEffect(() => {
-        if (checkedClasses.length > 0) {
+        if (checkedClass.length > 0) {
             setColorsOff({
                 colorIcon: '#f27302',
                 colorText: '#bdbdbd',
@@ -30,18 +30,15 @@ export const ButtonPlay = () => {
             setDisabled(false);
         }
 
-        if (checkedClasses.length === 0) {
+        if (checkedClass.length === 0) {
             setColorsOff(initColors)
             setDisabled(true);
         }
 
-    }, [checkedClasses]);
+    }, [checkedClass]);
 
     const handleClick = () => {
-        checkedClasses.forEach(element => {
-            navigate(`/trainingclass/${element}`);
-        });
-
+        navigate(`/trainingclass/${checkedClass[0]}`);
     }
 
     return (

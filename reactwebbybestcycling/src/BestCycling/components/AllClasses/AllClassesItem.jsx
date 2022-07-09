@@ -7,13 +7,13 @@ import { ClassContext } from '../../context/ClassContext';
 import { getNamesCoah, CalculateTime, getBoolToCheckContext } from '../../helpers';
 import { StatusColorTriangle } from '../StatusColorTriangle';
 
-export const SearchTrainingItem = ({ training_class }) => {
+export const AllClassesItem = ({ training_class }) => {
 
     const { id, name: nameclass, published, instructor_id, duration, image, level } = training_class;
 
-    const { checkedClasses, setcheckedClasses } = useContext(ClassContext);
+    const { checkedClass, setCheckedClass } = useContext(ClassContext);
     const [coachName, setCoachName] = useState([]);
-    const [checked, setChecked] = useState(false);
+    const [checkedBox, setCheckedBox] = useState(false);
     const navigate = useNavigate();
 
     //funcion que nos devuelve si el video a sido visto
@@ -31,21 +31,25 @@ export const SearchTrainingItem = ({ training_class }) => {
 
     const handleClick = () => navigate(`/trainingclass/${id}`);
 
-    const handleChange = ({ target }) => setChecked(target.checked)
+    const handleChange = () => setCheckedBox(!checkedBox);
 
     useEffect(() => {
-        if (checked) {
-            if (!checkedClasses.includes(id)) {
-                setcheckedClasses([...checkedClasses, id]);
+        //si el checkbox esta checked lo añadimos al context para añadirlo a la lista de reproducción 
+        if (checkedBox) {
+            if (!checkedClass.includes(id)) {
+                setCheckedClass([...checkedClass, id]);
+
             }
         }
 
-        if (!checked) {
-            if (checkedClasses.includes(id)) {
-                setcheckedClasses(checkedClasses.filter(item => item !== id));
+        //si el checkbox esta unchecked lo eliminamos del context para eliminarlo de la lista de reproducción
+        if (!checkedBox) {
+            if (checkedClass.includes(id)) {
+                setCheckedClass(checkedClass.filter(item => item !== id));
             }
         }
-    }, [checked])
+
+    }, [checkedBox])
 
     return (
         <Box component='div' spacing={1} sx={{ m: 1 }} className='animate__animated animate__zoomInUp'>
@@ -59,8 +63,8 @@ export const SearchTrainingItem = ({ training_class }) => {
             </CardActionArea>
 
             <Checkbox
-                checked={checked}
-                onChange={handleChange}
+                checked={checkedBox}
+                onChange={() => handleChange(id)}
                 sx={{
                     position: 'absolute',
                     color: '#F3F3F3',

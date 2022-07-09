@@ -8,7 +8,7 @@ import { useCyclingData } from '../../hooks/useCyclingData';
 export const GridProfile = () => {
 
     const { data, loading } = useCyclingData('profile');
-    // console.log(data)
+    
     if (loading) return <div>Loading...</div>
 
     return (

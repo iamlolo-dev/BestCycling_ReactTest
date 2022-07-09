@@ -23,9 +23,7 @@ export const LoginPage = () => {
             
             sendLogin(formState)
                 .then(res => {
-                    // console.log(res.data);
                     if (res.data.status === 'ok') {
-
                         login(res.data.user);
                         navigate('/');
                     }

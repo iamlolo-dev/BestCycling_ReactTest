@@ -9,13 +9,12 @@ import { ClassContext } from '../../context/ClassContext';
 export const ButtonGoBack = () => {
 
     const navigate = useNavigate();
-    const { setcheckedClasses } = useContext(ClassContext);
+    const { setCheckedClass } = useContext(ClassContext);
 
     const onNavigateBack = () => {
-        setcheckedClasses([]);
-        navigate(-1);
+        setCheckedClass([]);
+        navigate('/home')
     }
-
 
     return (
         <IconButton
@@ -23,7 +22,7 @@ export const ButtonGoBack = () => {
             style={{ backgroundColor: 'black', color: 'white', width: '45px', height: '45px', marginRight: '15px' }}
             color='info'
             size='medium'
-            onClick={onNavigateBack}
+            onClick={ () => {onNavigateBack()} }
         >
             <ArrowBackIosOutlinedIcon />
         </IconButton>

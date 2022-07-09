@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { AppBar, IconButton, Toolbar } from '@mui/material';
 import { NavLink, useNavigate } from 'react-router-dom';
-import {Duration} from 'luxon';
+import { Duration } from 'luxon';
 import LoginOutlined from '@mui/icons-material/LoginOutlined';
 
 import { AuthContext } from '../../auth/context';
@@ -19,22 +19,11 @@ export const Navbar = () => {
             replace: true
         });
     };
-    
+
     useInterval(() => {
         decrementTime();
 
     }, authState.user.subscription !== null ? 1000 : null)
-
-    //TODO: PREGUNTAR A ROMAN LA MEJOR FORMA DE HACER ESTO -->
-    const component = () => {
-
-        if (authState.user.subscription !== null) return <span style={{fontWeight: 'bold'}}> SUSCRIPCIÓN {Duration.fromMillis(authState.user.subscription).toFormat("mm.ss")}</span>
-        if (authState.user.typeSubscription !== null) return <ButtonSubNav text={'Renovación pendiente'} />
-
-        return <ButtonSubNav text={'SUSCRIPCIÓN'} />
-    }
-
-    console.log(authState.user);
 
     return (
         <AppBar position="fixed" style={{ background: '#000' }}>
@@ -47,7 +36,11 @@ export const Navbar = () => {
                 </NavLink>
 
                 <div>
-                    {component()}
+                    {
+                        (authState.user.subscription !== null) ? <span style={{ fontWeight: 'bold' }}> SUSCRIPCIÓN {Duration.fromMillis(authState.user.subscription).toFormat("mm.ss")}</span>
+                            : (authState.user.typeSubscription !== null) ? <ButtonSubNav text={'Renovación pendiente'} />
+                                : <ButtonSubNav text={'SUSCRIPCIÓN'} />
+                    }
 
                     <IconButton
                         size='large'

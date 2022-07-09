@@ -3,10 +3,10 @@ import { ClassContext } from './ClassContext';
 
 export const ClassProvider = ({ children }) => {
     const [ viewedClasses, setViewedClasses ] = useState([]);
-    const [ checkedClasses, setcheckedClasses ] = useState([]);
+    const [ checkedClass, setCheckedClass ] = useState([]);
 
     return (
-        <ClassContext.Provider value={{ viewedClasses, setViewedClasses, checkedClasses, setcheckedClasses}} >
+        <ClassContext.Provider value={{ viewedClasses, setViewedClasses, checkedClass, setCheckedClass}} >
             {children}
         </ClassContext.Provider>
     );
