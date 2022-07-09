@@ -1,14 +1,16 @@
 import { useContext } from 'react';
-import { AppBar, Button, IconButton, Toolbar } from '@mui/material';
+import { AppBar, IconButton, Toolbar } from '@mui/material';
 import { NavLink, useNavigate } from 'react-router-dom';
+import {Duration} from 'luxon';
 import LoginOutlined from '@mui/icons-material/LoginOutlined';
 
 import { AuthContext } from '../../auth/context';
 import { ButtonSubNav } from './ButtonSubNav';
+import { useInterval } from '../../BestCycling/hooks/useInterval';
 
 export const Navbar = () => {
 
-    const { logout, authState } = useContext(AuthContext);
+    const { logout, authState, decrementTime } = useContext(AuthContext);
     const navigate = useNavigate()
 
     const onLogout = () => {
@@ -17,14 +19,22 @@ export const Navbar = () => {
             replace: true
         });
     };
+    
+    useInterval(() => {
+        decrementTime();
 
+    }, authState.user.subscription !== null ? 1000 : null)
+
+    //TODO: PREGUNTAR A ROMAN LA MEJOR FORMA DE HACER ESTO -->
     const component = () => {
 
-        if (authState.user.subscription !== null) return <span> SUBSCRICIÓN: {authState.user.subscription}</span>
+        if (authState.user.subscription !== null) return <span style={{fontWeight: 'bold'}}> SUSCRIPCIÓN {Duration.fromMillis(authState.user.subscription).toFormat("mm.ss")}</span>
         if (authState.user.typeSubscription !== null) return <ButtonSubNav text={'Renovación pendiente'} />
 
         return <ButtonSubNav text={'SUSCRIPCIÓN'} />
     }
+
+    console.log(authState.user);
 
     return (
         <AppBar position="fixed" style={{ background: '#000' }}>

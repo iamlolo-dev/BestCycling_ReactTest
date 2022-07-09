@@ -27,7 +27,7 @@ export const AuthProvider = ({ children }) => {
     }
 
     const updateTime = (time) => {
-        const action = { type: types.subtimer, payload: time };
+        const action = { type: types.subscriptionTimer, payload: time };
 
         dispatch(action);
     }
@@ -44,8 +44,8 @@ export const AuthProvider = ({ children }) => {
         dispatch(action);
     }
 
-    const updateTypeSub = (typeTime) => {
-        const action = { type: types.typeSubscription, payload: typeTime };
+    const updateTypeSub = (time) => {
+        const action = { type: types.typeSubscription, payload: time };
 
         dispatch(action);
     }

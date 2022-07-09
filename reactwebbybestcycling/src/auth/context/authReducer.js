@@ -16,7 +16,7 @@ export const authReducer = (state = {}, action) => {
                 logged: false,
             };
 
-        case types.subtimer:
+        case types.subscriptionTimer:
             return {
                 ...state,
                 user: {
@@ -48,7 +48,7 @@ export const authReducer = (state = {}, action) => {
                 ...state,
                 user: {
                     ...state.user,
-                    typeSubscription: action.payload
+                    typeSubscription: state.user.autorenove !== false ? action.payload : null
                 }
             };
 

@@ -5,13 +5,11 @@ import { AuthContext } from '../../../auth/context';
 
 export const BoxTypeSub = ({ text, value }) => {
 
-    const { updateTime, authState, updateTypeSub  } = useContext(AuthContext);
+    const { updateTime, authState, updateTypeSub } = useContext(AuthContext);
 
     const handleClick = (val) => {
-
         updateTime(val);
         updateTypeSub(val);
-
     }
 
     return (

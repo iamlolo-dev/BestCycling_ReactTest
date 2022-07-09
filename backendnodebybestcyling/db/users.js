@@ -4,7 +4,7 @@ const dbUsers = [{
     password: '123456',
     name: 'Jhon Adams',
     subscription: null,
-    typeSubscription: null,
+    typeSub: null,
     autorenove: false,
 }];
 

@@ -3,8 +3,8 @@
 export const types = {
     login: '[Auth] Login',
     logout: '[Auth] Logout',
-    subscriptionTimer: '[Auth] subscriptionTimer',
+    subscriptionTimer: '[Auth] SubscriptionTimer',
     decrementTimer: '[Auth] DecrementTimer',
     toggleAutorenove: '[Auth] ToggleAutorenove',
-    typeSubscription: '[Auth]TypeSubscription',
+    typeSubscription: '[Auth] TypeSubscription',
 }

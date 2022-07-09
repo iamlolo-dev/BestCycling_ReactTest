@@ -5,25 +5,28 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { IconButton } from '@mui/material';
 import ArrowBackIosOutlinedIcon from '@mui/icons-material/ArrowBackIosOutlined';
 
-import { getTrainingById, getNamesCoah} from '../helpers';
+import { getTrainingById, getNamesCoah } from '../helpers';
 import { useCounter, useInterval } from '../hooks';
 import { ClassContext } from '../context/ClassContext';
+import { AuthContext } from '../../auth/context';
 
 export const TrainingPage = () => {
 
     const { id } = useParams();
-    
+
+    const { authState, updateTime } = useContext(AuthContext);
+
     const { viewedClasses, setViewedClasses } = useContext(ClassContext);
     const [dataClasse, setDataClasse] = useState(false)
     const [coachName, setCoachName] = useState([]);
     const navigate = useNavigate();
 
     //hook counter 
-    const { state: counter, reset ,decrement } = useCounter();
-    
+    const { state: counter, reset, decrement } = useCounter();
+
     //funcion que nos devuelve el nombre del coach en el estado
     getNamesCoah(dataClasse.instructor_id, setCoachName);
-    
+
     //function to get back to the last page
     const onNavigateBack = () => navigate(-1);
 
@@ -31,8 +34,8 @@ export const TrainingPage = () => {
     useEffect(() => {
         if (counter === 0) {
             setViewedClasses([...viewedClasses, parseInt(id)]);
-            onNavigateBack();
             reset();
+            onNavigateBack();
         }
     }, [counter]);
 
@@ -46,7 +49,11 @@ export const TrainingPage = () => {
 
     //Use interval to update the counter and controller to save id if === to 0
     useInterval(() => {
-        decrement();
+        if (authState.user.subscription === 0 && authState.user.autorenove === true) updateTime(authState.user.typeSubscription);
+        if (authState.user.subscription !== null) decrement();
+        if (authState.user.subscription === null) navigate('/subscription');
+
+
     }, (counter !== 0) ? 1000 : null);
 
     if (!dataClasse) return <div>Loading...</div>
